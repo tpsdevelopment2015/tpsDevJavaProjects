@@ -208,7 +208,7 @@ public class DataFrame extends JFrame {
                 }//end while loop
                 
                 // displays the total number of star sales reps in the stars.txt file in the text area
-                tADisplayArea.append("TOTAL STAR SALES REPRESENTATIVES: " + count + "\n\n");
+                tADisplayArea.append("TOTAL SALES REPRESENTATIVES: " + count + "\n\n");
                 //iterate throught the ArrayList and display they object in the text area
                 for (int i = 0; i < myStarsArrayList.size(); i++) {
                     tADisplayArea.append(myStarsArrayList.get(i).toString());
