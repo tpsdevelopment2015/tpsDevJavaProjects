@@ -56,7 +56,7 @@ public class compareForm extends javax.swing.JFrame
         list1Lbl.setText("LIST 1");
 
         shortCutLbl.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        shortCutLbl.setText("Ctrl A = SELECT ALL    Ctrl C = COPY");
+        shortCutLbl.setText("Ctrl A = SELECT ALL | Ctrl C = COPY  |  Ctrl X = CUT  |  Ctrl V = PASTE");
 
         compareBtn.setText("Compare");
         compareBtn.addActionListener(new java.awt.event.ActionListener()
@@ -126,7 +126,7 @@ public class compareForm extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(shortCutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(shortCutLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(exitBtn))
                     .addComponent(jScrollPaneResults, javax.swing.GroupLayout.Alignment.TRAILING)
