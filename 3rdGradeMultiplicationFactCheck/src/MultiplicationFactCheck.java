@@ -29,7 +29,7 @@ public class MultiplicationFactCheck {
 				}
 				System.out.println("Enter the next number:  ");
 				n = in.nextInt();
-			} while (n <= 12);
+			} while (n >= 1 && n <= 12);
 		}
 		System.out.println("\nYou have entered an invalid number. ***GOODBYE***");
 
