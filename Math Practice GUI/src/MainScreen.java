@@ -41,6 +41,8 @@ public class MainScreen {
 	String fantastic = "Fantastic!";
 	String goodJob = "Good Job!";
 	String sorry = "Sorry";
+	private JTextField txt_Remainder;
+	private JTextField txt_RemainderInput;
 //	File f1 = new File("applause.wav");
 //	File f2 = new File("chime.wav");
 //	File f3 = new File("mathIsFun.wav");
@@ -173,6 +175,25 @@ public class MainScreen {
 		frmMathPractice.getRootPane().setDefaultButton(btnCheck);
 		frmMathPractice.getContentPane().add(btnCheck);
 		
+		txt_Remainder = new JTextField();
+		txt_Remainder.setVisible(false);
+		txt_Remainder.setText("R");
+		txt_Remainder.setHorizontalAlignment(SwingConstants.CENTER);
+		txt_Remainder.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txt_Remainder.setEditable(false);
+		txt_Remainder.setColumns(10);
+		txt_Remainder.setBorder(null);
+		txt_Remainder.setBounds(248, 239, 20, 23);
+		frmMathPractice.getContentPane().add(txt_Remainder);
+		
+		txt_RemainderInput = new JTextField();
+		txt_RemainderInput.setVisible(false);
+		txt_RemainderInput.setHorizontalAlignment(SwingConstants.CENTER);
+		txt_RemainderInput.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		txt_RemainderInput.setColumns(10);
+		txt_RemainderInput.setBounds(270, 239, 63, 71);
+		frmMathPractice.getContentPane().add(txt_RemainderInput);
+		
 		
 	}//end initialize
 	
@@ -194,11 +215,13 @@ public class MainScreen {
 	{
 		try
 		{
+			
 			if(txt_4.getText().equals(e.getAnswerStr()))
 			{
 				txtCorrect.setBackground(Color.GREEN);
 				displayEncouragement();
 				txt_4.setText("");
+				txt_RemainderInput.setText("");
 				r = new Random();
 				e = new Equation(r.nextInt(max)+min, r.nextInt(max)+min);
 				txt_1.setText(e.getFirstNumStr());
@@ -207,18 +230,20 @@ public class MainScreen {
 				txt_5.setText(problemNum.toString()+".)");
 				txt_4.requestFocusInWindow();
 				problemNum++;
+				
 			}
 			else
 			{
-				txtCorrect.setBackground(Color.RED);
-				//txtCorrect.setText(tryAgain);
-								
-				wrongAnswer();
-				
+				txtCorrect.setBackground(Color.RED);						
+				wrongAnswer();		
 				txt_4.setText("");
+				txt_RemainderInput.setText("");
 			}
 		}
-		catch(NullPointerException e){}
+		catch(NullPointerException ex)
+		{
+			ex.printStackTrace();
+		}
 	}//end nextProblem
 
 	
@@ -242,8 +267,15 @@ public class MainScreen {
 		}
 		if(choice.getSelectedItem() == "Division")
 		{
+			txt_Remainder.setVisible(true);
+			txt_RemainderInput.setVisible(true);
 			txt_3.setText(Character.toString((char)247));
 			e.divide();
+		}
+		if(choice.getSelectedItem() != "Division")
+		{
+			txt_Remainder.setVisible(false);
+			txt_RemainderInput.setVisible(false);
 		}
 	}//end setProblem
 	
@@ -279,6 +311,4 @@ public class MainScreen {
 			txtCorrect.setText(sorry);
 		}
 	}
-
-	
 }//end class

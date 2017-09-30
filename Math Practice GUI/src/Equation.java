@@ -54,8 +54,13 @@ public int multiply()
 
 public int divide()
 {
-	remainder = firstNum % secondNum;
+	this.remainder = firstNum % secondNum;
 	return answer = firstNum / secondNum;
+}
+
+public String getRemainderStr()
+{
+	return Integer.toString(remainder);
 }
 
 
