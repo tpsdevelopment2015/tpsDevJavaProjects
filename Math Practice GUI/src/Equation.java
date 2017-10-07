@@ -9,6 +9,7 @@ public Equation(int firstNum, int secondNum)
 {
 	this.firstNum = Math.max(firstNum, secondNum);
 	this.secondNum = Math.min(firstNum, secondNum);
+	this.remainder = this.firstNum % this.secondNum;
 }
 
 
@@ -54,7 +55,6 @@ public int multiply()
 
 public int divide()
 {
-	this.remainder = firstNum % secondNum;
 	return answer = firstNum / secondNum;
 }
 

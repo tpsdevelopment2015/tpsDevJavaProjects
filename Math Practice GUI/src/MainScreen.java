@@ -1,3 +1,5 @@
+//This program was written to help my children with their Math homework.
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Choice;
@@ -21,6 +23,7 @@ public class MainScreen {
 	Scanner s = new Scanner(System.in);
 	int min = 2;
 	int max = 11;
+	
 	int userInput = 0;
 	Integer problemNum = 1;
 	Equation e = null;
@@ -208,16 +211,39 @@ public class MainScreen {
 		setProblemType();
 		txt_5.setText(problemNum.toString()+".)");
 		txt_4.requestFocusInWindow();
-		problemNum++;
+		
 	}
 	
 	private void nextProblem() 
 	{
 		try
 		{
-			
-			if(txt_4.getText().equals(e.getAnswerStr()))
+			if(choice.getSelectedItem() == "Division")//handles the division logic
 			{
+				if(txt_4.getText().equals(e.getAnswerStr()) && txt_RemainderInput.getText().equals(e.getRemainderStr()) )
+				{
+					problemNum++;
+					txtCorrect.setBackground(Color.GREEN);
+					displayEncouragement();
+					txt_4.setText("");
+					txt_RemainderInput.setText("");
+					r = new Random();
+					e = new Equation(r.nextInt(max)+min, r.nextInt(max)+min);
+					txt_1.setText(e.getFirstNumStr());
+					txt_2.setText(e.getsecondNumStr());
+					setProblemType();
+					txt_5.setText(problemNum.toString()+".)");
+					txt_4.requestFocusInWindow();		
+				}
+				else
+				{						
+					wrongAnswer();			
+				}
+			}//end Division logic
+			
+			else if(txt_4.getText().equals(e.getAnswerStr()))
+			{
+				problemNum++;
 				txtCorrect.setBackground(Color.GREEN);
 				displayEncouragement();
 				txt_4.setText("");
@@ -228,16 +254,11 @@ public class MainScreen {
 				txt_2.setText(e.getsecondNumStr());
 				setProblemType();
 				txt_5.setText(problemNum.toString()+".)");
-				txt_4.requestFocusInWindow();
-				problemNum++;
-				
+				txt_4.requestFocusInWindow();		
 			}
 			else
-			{
-				txtCorrect.setBackground(Color.RED);						
+			{							
 				wrongAnswer();		
-				txt_4.setText("");
-				txt_RemainderInput.setText("");
 			}
 		}
 		catch(NullPointerException ex)
@@ -301,6 +322,9 @@ public class MainScreen {
 	}
 	
 	private void wrongAnswer() {
+		
+		txtCorrect.setBackground(Color.RED);
+		
 		String t = txtCorrect.getText();
 		if( t.equals(sorry) || t.equals(goodLuck) || t.equals(yes) || t.equals(correctStr) || t.equals(fantastic) || t.equals(goodJob))
 		{
@@ -310,5 +334,10 @@ public class MainScreen {
 		{
 			txtCorrect.setText(sorry);
 		}
+		
+		txt_4.setText("");
+		txt_RemainderInput.setText("");
+		
 	}
+	
 }//end class
