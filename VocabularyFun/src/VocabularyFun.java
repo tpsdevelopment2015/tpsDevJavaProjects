@@ -20,6 +20,6 @@ public class VocabularyFun {
 		
 		
 		
-	}//end mail 
+	}//end main 
 
 }//end class
