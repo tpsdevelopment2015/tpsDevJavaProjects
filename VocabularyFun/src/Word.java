@@ -1,15 +1,23 @@
 
 public class Word {
 	
-	String word, definition;
+	String aWord, definition;
 	
-	private Word(String word, String definition)
+	public Word(String aWord, String definition)
 	{	
-		this.word = word;
+		this.aWord = aWord;
 		this.definition = definition;	
-	}//end constructor
+	}
 
+	public String getWord()
+	{
+		return this.aWord;
+	}
 	
+	public String getDefinition()
+	{
+		return this.definition;
+	}
 	
 	
 	
