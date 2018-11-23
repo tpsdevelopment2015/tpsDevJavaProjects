@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.Serializable;
 
 //This program was written to help my children with their vocabulary homework
 public class VocabularyFun {
