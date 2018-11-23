@@ -15,7 +15,7 @@ public class VocabularyFun {
 		
 		for(Word myWord : theList.getTheVocabList())
 		{
-			System.out.println(myWord.getWord() +": "+ myWord.getDefinition());		
+			System.out.println(myWord.getWord() +" : "+ myWord.getDefinition());		
 		}
 		
 		
